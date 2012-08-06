@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Vendas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+	  .box {background-color:f9f9f9; box-shadow:2px 2px 3px #ccc; padding:10px; background-color:#fff; cursor:move; margin-bottom:10px}	  
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    
+    <script>$('#myModal').modal(options)</script>
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Vendas</a>
+           
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+    	<div class="row">
+         <div class="span3">
+             <h1>Vendas</h1>
+             <p>Download the full repository or customize your entire Bootstrap build by selecting only the components, javascript plugins, and assets you need.</p>
+         </div>
+           <div class="span3">
+               <form class="well form-vertical ">
+                <input type="text" class="input-x-large" placeholder="Email">
+                <input type="password" class="input-x-large" placeholder="Password">
+                <button type="submit" class="btn">Entrar</button>
+              </form>
+       		 </div>
+          </div>
+      
+
+    </div> <!-- /container -->
+    
+
+    
+    <!--MODAL DE CRIAR DE PROJETOS-->
+      <div class="modal hide fade in" id="projetos">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Criar Projeto</h3>
+      </div>
+      <div class="modal-body">
+            <form class="well">
+              <label>Nome do Projeto:</label>
+              <input type="text" class="span3" placeholder="Type something…">
+              <label>Valor do Projeto:</label>
+              <input type="text" class="span3" placeholder="Type something…"> 
+              <label>Descrição do Projeto:</label>
+              <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-large btn-primary">Criar Projeto</button>
+              </div>
+            </form>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/google-code-prettify/prettify.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js">$('#myModal').modal(options)
+</script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script src="js/application.js"></script>
+    
+
+  </body>
+</html>
