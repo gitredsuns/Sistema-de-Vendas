@@ -1,0 +1,8 @@
+<? 
+
+class VendasModel extends AppModel
+{
+	
+}
+
+?>
