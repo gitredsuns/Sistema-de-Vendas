@@ -26,12 +26,36 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+	
+	<style>
+		.ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+		.ui-sortable-placeholder * { visibility: hidden; }
+	</style>
+	
 	<?php
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('bootstrap-responsive');
 		echo $this->Html->css('bootstrap');
-
+		
+		echo $this->Html->script('jquery');
+		echo $this->Html->script('jquery-ui');
+		echo $this->Html->script('prettify');
+		echo $this->Html->script('bootstrap-transition');
+		echo $this->Html->script('bootstrap-alert');
+		echo $this->Html->script('bootstrap-modal');
+		echo $this->Html->script('bootstrap-dropdown');
+		echo $this->Html->script('bootstrap-scrollspy');
+		echo $this->Html->script('bootstrap-tab');
+		echo $this->Html->script('bootstrap-tooltip');
+		echo $this->Html->script('bootstrap-popover');
+		echo $this->Html->script('bootstrap-button');
+		echo $this->Html->script('bootstrap-collapse');
+		echo $this->Html->script('bootstrap-carousel');
+		echo $this->Html->script('bootstrap-typeahead');
+		echo $this->Html->script('application');
+		//echo $this->Html->script('interface');
+		
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -57,8 +81,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		            </form>
 		          <div class="nav-collapse pull-left">
 		            <ul class="nav">
-		              <li class="active"><?php echo $this->Html->link('Dashboard', array('controller' => 'Vendas', 'action' => 'dashboard')); ?></li>
-		              <li><?php echo $this->Html->link('Usuarios', array('controller' => 'Usuarios', 'action' => 'usuarios')); ?></li>
+		              <li class="active"><a href="">Dashboard</a></li>
+		              <li><a href="usuarios">Usuarios</a></li>
 		              <li><?php echo $this->Html->link('Minha conta', array('controller' => 'Usuarios', 'action' => 'conta')); ?></li>
 		              <li><?php echo $this->Html->link('Sair', array('controller' => 'Usuarios', 'action' => 'sair')); ?></li>
 		            </ul>
@@ -82,6 +106,29 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			?>
 		</div>
 	</div>
+	
+	<script>
+
+	jQuery( document ).ready( function() {
+		jQuery(".drag").sortable({
+			connectWith : '.drag',
+			dropOnEmpty: true,
+			stop : function( event, ui ) 
+			{ 	
+				//target
+				
+				var out = '';
+			    for (var i in event.target.parentNode) {
+			    	out += i + ": " + event.target.parentNode[i] + "<br>";
+			    }
+
+			    jQuery("body").append( out ); 
+			}
+		});
+		jQuery( ".drag" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" );
+	});
+	</script>
+	
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

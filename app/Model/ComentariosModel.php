@@ -1,0 +1,8 @@
+<? 
+
+class ComentariosModel extends AppModel
+{
+	
+}
+
+?>
