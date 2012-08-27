@@ -37,7 +37,7 @@
            
           	<div class="drag" id="lead">
           	&nbsp;
-           		<?= $lead; ?>
+           		<?= @$lead; ?>
             </div>
             
           </div>
@@ -45,7 +45,7 @@
           	<h2>Contactado</h2>
             <div class="drag" id="contactado">
             &nbsp;
-           		 <?= $contactado; ?>
+           		 <?= @$contactado; ?>
             </div>                   
           </div>
           <div class="span3">
@@ -53,16 +53,16 @@
             
             <div class="drag" id="briefing">
             &nbsp;
-            	<?= $briefing; ?>
+            	<?= @$briefing; ?>
             </div>
             
           </div>
           <div class="span3">
           	<h2>Proposta Enviada</h2>
             
-            <div class="drag" id="enviada">
+            <div class="drag" id="enviado">
             &nbsp;
-            	<?= $enviada; ?>
+            	<?= @$enviada; ?>
             </div>
                    
           </div>
