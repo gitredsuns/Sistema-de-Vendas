@@ -27,9 +27,7 @@ class UsuariosController extends AppController
 				$id
 				.
 				'has been deleted.');
-				$this->redirect(array('action'
-						=>
-						'index'));
+				$this->redirect(array('action' => 'index'));
 		}
 	}
 
