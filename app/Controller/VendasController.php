@@ -17,7 +17,7 @@ class VendasController extends AppController
 		{
 			if( $item['Venda']['status'] == 'lead' )
 			{
-				$html_lead .= ' <div class="box">
+				$html_lead .= ' <div class="box" id="'.$item['Venda']['id'].'">
 					            	<h3>'.$item['Venda']['nome_projeto'].'</h3>
 					            	<p>'.$item['Venda']['descricao'].'</p>
 					                <a class="btn" href="'.$this->webroot.'vendas/detalhes/'.$item['Venda']['id'].'">Detalhes</a>
@@ -25,7 +25,7 @@ class VendasController extends AppController
 			}
 			if( $item['Venda']['status'] == 'contactado' )
 			{
-				$html_contactado .= ' <div class="box">
+				$html_contactado .= ' <div class="box" id="'.$item['Venda']['id'].'">
 										<h3>Nome do Projeto</h3>
 										<p>'.$item['Venda']['descricao'].'</p>
 										<a class="btn" href="'.$this->webroot.'vendas/detalhes/'.$item['Venda']['id'].'">Detalhes</a>
@@ -33,22 +33,22 @@ class VendasController extends AppController
 			}
 			if( $item['Venda']['status'] == 'briefing' )
 			{
-				$html_briefing .= ' <div class="box">
+				$html_briefing .= ' <div class="box" id="'.$item['Venda']['id'].'">
 										<h3>Nome do Projeto</h3>
 										<p>'.$item['Venda']['descricao'].'</p>
 										<a class="btn" href="'.$this->webroot.'vendas/detalhes/'.$item['Venda']['id'].'">Detalhes</a>
 									</div>';
 			}
-			if( $item['Venda']['status'] == 'proposta enviada' )
+			if( $item['Venda']['status'] == 'enviado' )
 			{
-				if( $item['Venda']['status_projeto'] == 'aguardando' )
+				if( $item['Venda']['status_proposta'] == 'aguardando' )
 				{
 					$msg = '';
 					$btn = ' 	<a class="btn" href="'.$this->webroot.'vendas/detalhes/'.$item['Venda']['id'].'">Detalhes</a>
 				                <a class="btn btn-success" href="">Fechado</a>
 								<a class="btn btn-warning" href="">Cancelado</a>';
 				}
-				else if( $item['Venda']['status_projeto'] == 'fechado' ) 
+				else if( $item['Venda']['status_proposta'] == 'fechado' ) 
 				{
 					$msg = '<span class="label label-warning">Cancelado</span>';
 					$btn = '<a class="btn" href="'.$this->webroot.'vendas/detalhes/'.$item['Venda']['id'].'">Detalhes</a>';
@@ -59,7 +59,7 @@ class VendasController extends AppController
 					$btn = '<a class="btn"  href="'.$this->webroot.'vendas/detalhes/'.$item['Venda']['id'].'">Detalhes</a>';
 				}
 				
-				$html_enviada .= ' <div class="box">
+				$html_enviada .= ' <div class="box" id="'.$item['Venda']['id'].'">
 										<h3>'.$msg.'Nome do Projeto</h3>
 										<p>'.$item['Venda']['descricao'].'</p>
 										'.$btn.'
@@ -105,7 +105,7 @@ class VendasController extends AppController
 	
 	public function salvar() 
 	{
-		if ($this->request->is('post')) 
+		if ( $this->request->is('post') ) 
 		{	
 			$id_user = 1;
 			
@@ -129,6 +129,26 @@ class VendasController extends AppController
 				$this->redirect(array('action' => 'index'));
 			}
 		}
+	}
+	
+	function editar_status( $id = null )
+	{	
+		 $this->Venda->id = $this->data['id'];    
+		 
+		 if( $this->Venda->id != 'undefined' )
+		 {
+			 if (empty($this->data)) 
+			 {       
+			 		$this->data = $this->Venda->read();    
+			 } 
+			 else 
+			 {    
+			 	if ($this->Venda->save($this->data)) 
+			 	{            
+			 		die( 'salvo' );    
+			 	}    
+			 }
+		 }
 	}
 }
 

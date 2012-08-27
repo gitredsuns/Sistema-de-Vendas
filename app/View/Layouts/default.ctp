@@ -113,16 +113,20 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		jQuery(".drag").sortable({
 			connectWith : '.drag',
 			dropOnEmpty: true,
-			stop : function( event, ui ) 
+			update : function( event, ui ) 
 			{ 	
-				//target
+				//alert( jQuery( this ).find('.box').attr("id") ); 
 				
-				var out = '';
-			    for (var i in event.target.parentNode) {
-			    	out += i + ": " + event.target.parentNode[i] + "<br>";
-			    }
-
-			    jQuery("body").append( out ); 
+				$.ajax({
+					type: "POST",
+					cache: false,
+					url	: '<?= $this->webroot; ?>vendas/editar_status',
+					data: "status="+jQuery( this ).attr( "id" )+'&id='+jQuery( this ).find('.box').attr("id"),
+					success: function(html) 
+					{
+						alert( html );
+					}
+				});
 			}
 		});
 		jQuery( ".drag" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" );
